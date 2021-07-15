@@ -1,0 +1,44 @@
+$ npm init -y
+
+$ npm i -D typescript
+
+$ npx tsc --init
+
+    // this will create tsconfig.json
+
+package.json
+
+    "scripts": {
+        "build": "tsc"
+
+$ npm run build
+
+
+ts-jest is a TypeScript preprocessor for jest, 
+that lets you use jest to test projects written in TypeScript.
+
+$ npm i -D jest ts-jest @types/jest
+
+$ npx ts-jest config:init
+
+    need to tell Jest that we want to use ts-jest as 
+    a preprocessor
+
+    this will create jest.config.js 
+    with a setting for jest to use the 
+    preprocessor ts-jest
+
+
+package.json
+
+    "scripts": {
+        ...
+        "test": "jest"
+
+-------
+// from command + shift + p, default build task
+// then tsc watch
+
+    this will create tasks.json
+
+--

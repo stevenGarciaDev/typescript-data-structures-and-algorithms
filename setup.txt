@@ -1,0 +1,107 @@
+$ npm init -y
+
+    Create a package.json file 
+    and accept the defaults.
+
+$ npm i -D typescript
+
+    Install typescript as a dev dependency.
+
+$ npx tsc --init
+
+    npx stands for Node Package Execute
+
+    It will execute any package you want 
+    from the npm registry 
+    without even install that package.
+
+    so tsc --init 
+    will create a tsconfig.json file 
+
+    This json file will instruct TypeScript 
+    on how it should be compiling your code.
+
+        You can specify different options for different browsers,
+        and advanced features.
+
+        As well as which version, it should be coded in and transpiled to.
+
+    So within the package.json
+
+    go and do 
+
+    "scripts": {
+        "build": "tsc"
+    }
+
+    We then need to tell VScode, how to actually execute this TypeScript compiler information 
+    according to the tsconfig.json file.
+
+    Debug option 
+        -> create a launch.json file 
+
+        choose node.js
+
+        .vscode/
+            launch.json
+
+    delete all of it
+
+
+    all we are doing is telling VSCode to reference the 
+        
+$ npm run build
+
+
+https://basarat.gitbook.io/typescript/intro-1/jest
+
+$ npm i -D jest ts-jest @types/jest
+
+$ npx ts-jest config:init
+
+    need to tell Jest that we want to use ts-jest as 
+    a preprocessor
+
+    this will create jest.config.js 
+    with a setting for jest to use the 
+    preprocessor ts-jest
+
+    package.json
+
+    "scripts": {
+        ...
+        "test": "jest"
+
+$ npx ts-node fileName.ts
+
+
+
+Then for the launch.json for debugging within vscode.
+
+    Note that tsc is for typescript compile.
+
+    Simply instructing VScode to look for TypeScript file
+
+    {
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "node",
+                "request": "launch",
+                "name": "Launch for TypeScript",
+                "program": "${workspaceFolde}/${file}",
+                "preLaunchTask": "tsc: build - tsconfig.json",
+                "outFiles": [
+                    "${workspaceFolder}/dist/**/*.js"
+                ]
+            }
+        ]
+    }
+
+
+$ npx jest 
+
+$ npx jest fileName.test.ts
